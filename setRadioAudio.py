@@ -20,8 +20,10 @@ for url in urls:
             title = d2['file_title']
             date = d2['onair_date']
             file = d2['file_name']
-            filePass = program_title + r"/" + title + r'.mp3'
-            print(filePass)
+            date = d2['aa_vinfo3'][0:8]
+            filePass = date +"_" +program_title + r"/" + title + r'.mp3'
+
+
             if not os.path.exists(f'{program_title}\{title}.mp3'):
                 cmd = f'ffmpeg -y -vn -v verbose -http_seekable 0 -i "{file}" -id3v2_version 3 -metadata artist="NHK" -metadata title="{date}" -metadata album="{program_title}" -metadata date="2022" -metadata track="236" -ab 48k -ar 24000 -ac 1 "{filePass}"'
                 os.system(cmd)
