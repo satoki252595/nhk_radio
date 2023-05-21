@@ -21,7 +21,7 @@ for url in urls:
             date = d2['onair_date']
             file = d2['file_name']
             date = d2['aa_vinfo3'][0:8]
-            filePass = date +"_" +program_title + r"/" + title + r'.mp3'
+            filePass = program_title + r"/" + date +"_" +title + r'.mp3'
 
 
             if not os.path.exists(f'{program_title}\{title}.mp3'):
